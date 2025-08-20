@@ -126,7 +126,7 @@ export default function Navigation() {
 
           {/* Mobile Navigation (overlay + slide-in drawer via portal) */}
           {isMenuOpen && typeof document !== 'undefined' && createPortal(
-            <div className="md:hidden fixed inset-0 z-[60]">
+            <div className="md:hidden fixed inset-0 z-[60]" data-portal="mobile-menu">
               {/* Backdrop with blur */}
               <div
                 className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300"

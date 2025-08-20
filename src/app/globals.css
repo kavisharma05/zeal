@@ -463,14 +463,33 @@
     }
   }
 
-  /* Mobile menu blur effect */
-  .menu-open-blur > * {
+  /* Mobile menu blur effect - only blur main content, not the menu itself */
+  .menu-open-blur > *:not(nav):not([role="dialog"]):not([data-portal]) {
     filter: blur(2px);
     transition: filter 0.3s ease;
   }
   
-  /* Ensure navigation stays unblurred */
-  .menu-open-blur nav {
+  /* Ensure navigation and mobile menu drawer stay unblurred */
+  .menu-open-blur nav,
+  .menu-open-blur [role="dialog"],
+  .menu-open-blur [data-portal] {
     filter: none !important;
+  }
+
+  /* Mobile menu optimizations for crisp rendering */
+  [data-portal="mobile-menu"] {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+  }
+
+  [data-portal="mobile-menu"] [role="dialog"] {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
   }
 }
