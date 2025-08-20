@@ -2,5 +2,10 @@
   "version": 2,
   "framework": "nextjs",
   "buildCommand": "next build",
-  "outputDirectory": ".next"
+  "outputDirectory": ".next",
+  "functions": {
+    "app/**/*.{js,ts,tsx}": {
+      "runtime": "nodejs20.x"
+    }
+  }
 }
